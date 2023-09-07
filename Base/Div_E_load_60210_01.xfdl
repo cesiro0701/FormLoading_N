@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Div_E_load_60210_01" width="310" height="490" titletext="New Form" onload="Div_E_load_60210_01_onload" oninit="Div_E_load_60210_01_oninit" onclose="Div_E_load_60210_01_onclose">
+    <Layouts>
+      <Layout width="310" height="490">
+        <Div id="Div_MainForm_01" taborder="0" text="Div_MainForm" left="8" top="70" width="293" height="186" border="1px solid rgba(128,128,128,1)" url="Base::Div_E_load_60210_02.xfdl"/>
+        <TextArea id="TextArea00" taborder="1" left="2.26%" top="296" right="2.58%" height="184"/>
+        <Button id="Button00" taborder="2" text="clear" left="65.16%" top="264" right="2.9%" height="28" onclick="Button00_onclick"/>
+        <Button id="Button01" taborder="3" text="Main_01.reload" left="18" top="21" width="114" height="33" onclick="Button01_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[include "XJS::main_js.xjs"
+
+this.Div_E_load_60210_01_onload = function (obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.TextArea00.set_value(this.TextArea00.value + "\nMainForm_01_onload");
+	
+	var CompareText = "main_js.xjs load" + "\n"
+						+ "MainForm_01_oninit" + "\n"
+						+ "SubForm_02_oninit" + "\n"
+						+ "subsub_js.xjs load" + "\n"
+						+ "SubForm_03_oninit" + "\n"
+						+ "SubForm_04_oninit" + "\n"
+						+ "SubForm_04_onload" + "\n"
+						+ "SubForm_03_onload" + "\n"
+						+ "SubForm_02_onload" + "\n"
+						+ "MainForm_01_onload";
+	if (CompareText === this.TextArea00.text)
+		alert("Load Test Pass");
+	else
+		alert("Load Test Fail");
+};
+
+this.Div_E_load_60210_01_oninit = function (obj:Form, e:nexacro.InitEventInfo)
+{
+	this.TextArea00.set_value(this.TextArea00.value + "\nMainForm_01_oninit");
+};
+
+this.Button00_onclick = function (obj:Button, e:nexacro.ClickEventInfo)
+{
+	this.TextArea00.set_value("");
+};
+
+this.Button01_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.reload();
+};
+
+this.Div_E_load_60210_01_onclose = function(obj:nexacro.Form,e:nexacro.CloseEventInfo)
+{
+	trace("MainForm_01_onclose" + " // e.fromobject.parent.name=" + e.fromobject.parent.name + " // e.fromreferenceobject=" + e.fromreferenceobject.parent.name);
+};
+]]></Script>
+  </Form>
+</FDL>

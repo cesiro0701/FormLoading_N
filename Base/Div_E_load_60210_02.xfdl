@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Div_E_load_60210_02" width="310" height="180" titletext="New Form" oninit="Div_E_load_60210_02_oninit" onload="Div_E_load_60210_02_onload" onclose="Div_E_load_60210_02_onclose">
+    <Layouts>
+      <Layout width="310" height="180">
+        <Div id="Div_MainForm_02" taborder="0" text="SubForm" left="48" top="40" width="250" height="134" url="Base::Div_E_load_60210_03.xfdl" border="1px solid rgba(128,128,128,1)"/>
+        <Button id="Button00" taborder="1" text="Sub_02.reload" left="11" top="7" width="136" height="29" onclick="Button00_onclick"/>
+      </Layout>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Div_E_load_60210_02_oninit = function (obj:Form, e:nexacro.InitEventInfo)
+{
+	this.parent.parent.TextArea00.set_value(this.parent.parent.TextArea00.value + "\nSubForm_02_oninit");
+};
+
+this.Div_E_load_60210_02_onload = function (obj:Form, e:nexacro.LoadEventInfo)
+{
+	this.parent.parent.TextArea00.set_value(this.parent.parent.TextArea00.value + "\nSubForm_02_onload");
+};
+
+this.Button00_onclick = function(obj:nexacro.Button,e:nexacro.ClickEventInfo)
+{
+	this.parent.parent.TextArea00.set_value("");
+	this.reload();
+};
+
+this.Div_E_load_60210_02_onclose = function(obj:nexacro.Form,e:nexacro.CloseEventInfo)
+{
+	trace("SubForm_02_onclose" + " // e.fromobject.parent.name=" + e.fromobject.parent.name + " // e.fromreferenceobject=" + e.fromreferenceobject.parent.name);
+};
+]]></Script>
+  </Form>
+</FDL>

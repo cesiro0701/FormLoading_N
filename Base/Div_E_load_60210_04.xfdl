@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FDL version="2.1">
+  <Form id="Div_E_load_60210_04" width="310" height="180" titletext="New Form" oninit="Div_E_load_60210_04_oninit" onload="Div_E_load_60210_04_onload" onclose="Div_E_load_60210_04_onclose" background="aquamarine">
+    <Layouts>
+      <Layout width="310" height="180"/>
+    </Layouts>
+    <Script type="xscript5.1"><![CDATA[
+this.Div_E_load_60210_04_onclose = function(obj:nexacro.Form,e:nexacro.CloseEventInfo)
+{
+	trace("SubForm_04_onclose" + " // e.fromobject.parent.name=" + e.fromobject.parent.name + " // e.fromreferenceobject=" + e.fromreferenceobject.parent.name);
+};
+
+this.Div_E_load_60210_04_onload = function(obj:nexacro.Form,e:nexacro.LoadEventInfo)
+{
+	this.parent.parent.parent.parent.parent.parent.TextArea00.set_value(this.parent.parent.parent.parent.parent.parent.TextArea00.value + "\nSubForm_04_onload");
+};
+
+this.Div_E_load_60210_04_oninit = function(obj:nexacro.Form,e:nexacro.EventInfo)
+{
+	this.parent.parent.parent.parent.parent.parent.TextArea00.set_value(this.parent.parent.parent.parent.parent.parent.TextArea00.value + "\nSubForm_04_oninit");
+};
+]]></Script>
+  </Form>
+</FDL>
